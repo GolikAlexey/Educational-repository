@@ -14,6 +14,7 @@ public class DZ_19_11_2024_1 {
             System.out.print(array[i] + " ");
         }
         System.out.print("}\nКоличество отрицательных элемеентов: " + otric(n, array, 0, 0));
+        System.out.println("\nДОМАШНЕЕ ЗАДАНИЕ");
     }
 
     static int getNumber(){
