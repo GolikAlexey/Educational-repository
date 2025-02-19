@@ -24,6 +24,29 @@ public class Controller {
         } else if (answer.equals("2")){
             Collection articles = articleModel.getAllArticles();
             userInterface.showAllArticles(articles);
+        } else if (answer.equals("3")) {
+            String articleTitle = userInterface.getUserArticle();
+            try {
+                Map article = articleModel.getSingleArticle(articleTitle);
+                userInterface.showSingleArticles(article);
+            } catch (NullPointerException npe) {
+                userInterface.showIncorrectTitleError(articleTitle);
+            }
+        } else if (answer.equals("4")) {
+            String articleTitle = userInterface.getUserArticle();
+            //try {
+            Article title = articleModel.removeArticle(articleTitle);
+            if (title != null)
+                userInterface.removeSingleArticle(title);
+                //} catch (NullPointerException npe) {
+            else {
+                userInterface.showIncorrectTitleError(articleTitle);
+            }
+            // }
+        } else if (answer.equals("q")){
+            articleModel.saveData();
+        } else {
+            userInterface.showIncorrectAnswerError(answer);
         }
     }
 }
